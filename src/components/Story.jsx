@@ -1,75 +1,55 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Story() {
-  const containerRef = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const yBackground = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-  const opacityText1 = useTransform(scrollYProgress, [0, 0.3, 0.5], [0, 1, 0.5]);
-  const opacityText2 = useTransform(scrollYProgress, [0.2, 0.5, 0.7], [0, 1, 0.5]);
-  const opacityText3 = useTransform(scrollYProgress, [0.4, 0.7, 1], [0, 1, 1]);
-  const yText = useTransform(scrollYProgress, [0, 1], [50, -50]);
-
   return (
-    <section 
-      ref={containerRef}
-      className="relative w-full min-h-[120vh] bg-black flex items-center justify-center overflow-hidden"
-    >
-      {/* Background Parallax */}
-      <motion.div 
-        style={{ y: yBackground }}
-        className="absolute inset-0 w-full h-[140%] -top-[20%] z-0"
-      >
-        <Image
-          src="/media/limitless-photo-30.jpg"
-          alt="Parallax Background"
-          fill
-          className="object-cover opacity-50"
-          quality={90}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
-        <div className="absolute inset-0 bg-black/50" />
-      </motion.div>
-
-      {/* Contenu Textuel - Centré en bloc */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 w-full flex flex-col items-center justify-center py-32">
-        <motion.div style={{ y: yText }} className="flex flex-col items-center justify-center space-y-2 md:space-y-6">
-          <motion.h2
-            style={{ opacity: opacityText1 }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[8rem] font-black tracking-tighter text-white leading-none mix-blend-overlay text-center"
-          >
-            15 JOURS.
-          </motion.h2>
+    <section className="w-full bg-black py-24 md:py-32 px-6 md:px-12 flex justify-center">
+      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+        
+        {/* Left Column: Text */}
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex flex-col space-y-8"
+        >
+          <div className="space-y-2">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white">
+              15 JOURS.
+            </h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-gray-300">
+              2400 KM.
+            </h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-gray-500">
+              SANS ASSISTANCE.
+            </h2>
+          </div>
           
-          <motion.h2
-            style={{ opacity: opacityText2 }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[8rem] font-black tracking-tighter text-white leading-none mix-blend-overlay text-center"
-          >
-            2400 KM.
-          </motion.h2>
-          
-          <motion.h2
-            style={{ opacity: opacityText3 }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[8rem] font-black tracking-tighter text-white leading-none mix-blend-overlay text-center"
-          >
-            SANS ASSISTANCE.
-          </motion.h2>
+          <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed max-w-md">
+            Un tour de France en kitefoil par la mer. Le vent, la houle, et une volonté de repousser ses propres limites en solitaire, de Dunkerque jusqu'à la Promenade des Anglais.
+          </p>
         </motion.div>
 
-        <motion.p
-          style={{ opacity: opacityText3 }}
-          className="mt-16 md:mt-24 text-xl md:text-2xl text-white/90 max-w-2xl mx-auto text-center font-light leading-relaxed backdrop-blur-md bg-black/30 p-8 rounded-2xl border border-white/10 shadow-2xl"
+        {/* Right Column: Image */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="relative aspect-[4/5] w-full max-w-md mx-auto md:ml-auto group overflow-hidden rounded-sm"
         >
-          Un tour de France en kitefoil par la mer. Le vent, la houle, et une volonté de repousser ses propres limites en solitaire.
-        </motion.p>
+          <Image
+            src="/media/limitless-photo-32.jpg"
+            alt="Limitless Tour de France"
+            fill
+            className="object-cover transition-transform duration-1000 group-hover:scale-105"
+            quality={90}
+          />
+        </motion.div>
+
       </div>
     </section>
   );

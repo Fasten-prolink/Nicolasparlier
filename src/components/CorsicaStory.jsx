@@ -1,87 +1,59 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function CorsicaStory() {
-  const containerRef = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const yBackground = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-  const opacityText1 = useTransform(scrollYProgress, [0, 0.3, 0.5], [0, 1, 0.5]);
-  const opacityText2 = useTransform(scrollYProgress, [0.2, 0.5, 0.7], [0, 1, 0.5]);
-  const opacityText3 = useTransform(scrollYProgress, [0.4, 0.7, 1], [0, 1, 1]);
-  const yText = useTransform(scrollYProgress, [0, 1], [50, -50]);
-
   return (
-    <section 
-      ref={containerRef}
-      className="relative w-full min-h-[120vh] bg-black flex items-center justify-center overflow-hidden"
-    >
-      {/* Background Parallax */}
-      <motion.div 
-        style={{ y: yBackground }}
-        className="absolute inset-0 w-full h-[140%] -top-[20%] z-0"
-      >
-        <Image
-          src="/media/limitless-photo-16.jpg" 
-          alt="Corse Parallax Background"
-          fill
-          className="object-cover opacity-60"
-          quality={90}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
-        <div className="absolute inset-0 bg-blue-900/20 mix-blend-multiply" /> {/* Légère teinte bleutée pour la Méditerranée */}
-      </motion.div>
-
-      {/* Contenu Textuel - Centré en bloc */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 w-full flex flex-col items-center justify-center py-32">
+    <section className="w-full bg-black py-24 md:py-32 px-6 md:px-12 flex justify-center">
+      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
         
-        {/* Titre de Chapitre */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-white/60 tracking-[0.4em] uppercase text-xs md:text-sm mb-16 font-light"
+        {/* Left Column: Image */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="relative aspect-[4/5] w-full max-w-md mx-auto md:mr-auto group overflow-hidden rounded-sm order-2 md:order-1"
         >
-          Chapitre II — Le défi Méditerranéen
-        </motion.p>
-
-        <motion.div style={{ y: yText }} className="flex flex-col items-center justify-center space-y-2 md:space-y-6">
-          <motion.h2
-            style={{ opacity: opacityText1 }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[8rem] font-black tracking-tighter text-white leading-none mix-blend-overlay text-center"
-          >
-            187 KM.
-          </motion.h2>
-          
-          <motion.h2
-            style={{ opacity: opacityText2 }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[8rem] font-black tracking-tighter text-white leading-none mix-blend-overlay text-center"
-          >
-            5 HEURES.
-          </motion.h2>
-          
-          <motion.h2
-            style={{ opacity: opacityText3 }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-black tracking-tighter text-white leading-none mix-blend-overlay text-center"
-          >
-            EN HAUTE MER.
-          </motion.h2>
+          <Image
+            src="/media/limitless-photo-16.jpg"
+            alt="Défi Méditerranéen Corse"
+            fill
+            className="object-cover transition-transform duration-1000 group-hover:scale-105"
+            quality={90}
+          />
         </motion.div>
 
-        <motion.p
-          style={{ opacity: opacityText3 }}
-          className="mt-16 md:mt-24 text-xl md:text-2xl text-white/90 max-w-2xl mx-auto text-center font-light leading-relaxed backdrop-blur-md bg-black/30 p-8 rounded-2xl border border-white/10 shadow-2xl"
+        {/* Right Column: Text */}
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex flex-col space-y-8 order-1 md:order-2"
         >
-          Relier Saint-Tropez à Calvi en solitaire. Sans assistance motorisée, face au mistral, à 90km des côtes avec un radeau de survie comme seule assurance.
-        </motion.p>
+          <p className="text-gray-500 tracking-[0.4em] uppercase text-xs md:text-sm font-light">
+            Chapitre II — Le défi Méditerranéen
+          </p>
+
+          <div className="space-y-2">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white">
+              187 KM.
+            </h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-gray-300">
+              5 HEURES.
+            </h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-gray-500">
+              EN HAUTE MER.
+            </h2>
+          </div>
+          
+          <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed max-w-md">
+            Relier Saint-Tropez à Calvi en solitaire. Sans assistance motorisée, face au mistral, à 90km des côtes avec un radeau de survie comme seule assurance.
+          </p>
+        </motion.div>
+
       </div>
     </section>
   );

@@ -64,3 +64,21 @@ Relier Saint-Tropez (Plages de Pampelonne) à Calvi en Corse en kitefoil, seul, 
 
 **Citation clé :**
 > "J'en ai rêvé, j'ai l'impression que les planètes s'alignent. Vive le kitefoil ! C'est un sport de ouf pour repousser la limite." — Nicolas Parlier
+
+---
+
+## 5. Article : De la Compétition Olympique à l'Exploration (30 Juin 2026)
+
+**La fin de l'Olympisme et le Diktat du poids :**
+- Nicolas a mis fin à sa carrière olympique à cause de la nature des parcours (trop courts, 10 min, pas assez cardio : "un guépard dans une cage") et du diktat du poids.
+- Les athlètes dominants (ex: Valentin Bontus, Toni Vodisek) pèsent autour de 100-105kg pour tenir les voiles ultra-puissantes. 
+- Nicolas, à 80-82kg, perdait en inertie dans le vent faible et en tenue de voile dans le vent fort face à ces gabarits. Il a refusé de grossir artificiellement.
+
+**Anecdotes du projet Limitless :**
+- **L'équipe :** Antoine Lorin (kiné/réalisateur) et Aurélie (sa compagne, qui a conduit le van sur 6000 km). Budget total : 50 000 € (16k€ animation 3D, 15k€ film, 4.5k€ van). Ni Nicolas ni Aurélie ne se sont payés.
+- **Sécurité ("Un égal à zéro") :** Inspiré par un pilote d'hélico : avoir un seul système de sécurité, c'est comme n'en avoir aucun. Il avait 4 moyens : iPhone, Tel Satellite, VHF, et balise PLB. Plus des palmes accrochées au harnais ("ne pas s'écarter plus que la distance à la nage").
+- **Dangers :** Eau à 8°C à Dunkerque. Barre au crâne à cause de la cagoule. Les falaises inaccessibles entre Dieppe et Étretat. Piégé dans un filet de pêche (proche du naufrage). 1km à la nage avec palmes en Bretagne Sud par manque de vent.
+
+**L'engagement pour les Océans (UNOC Nice) :**
+- "L'océan n'est pas une poubelle, il faut arrêter de jeter des plastiques dedans !" (L'océan produit 50% de notre oxygène).
+- Délégation "Athletes for Science" (avec Armelle Courtois, Marie Chauché, etc.) à la Conférence des Nations Unies sur l'Océan (UNOC) le 12 juin 2026 à Nice.

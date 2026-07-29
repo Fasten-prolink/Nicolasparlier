@@ -24,7 +24,7 @@ export default function Footer() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           className="flex items-center gap-8 text-sm uppercase tracking-widest font-light text-gray-400"
         >
-          <a href="#" className="hover:text-white transition-colors duration-300">Instagram</a>
+          <a href="https://www.instagram.com/nicokitexp/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">Instagram</a>
           <a href="#" className="hover:text-white transition-colors duration-300">LinkedIn</a>
           <a href="mailto:contact@nicolas-parlier.fr" className="hover:text-white transition-colors duration-300">Contact</a>
         </motion.div>
